@@ -98,6 +98,4 @@ Minor changes needed (date functions differ slightly)
 - **SQLite** — Database engine
 - **DB Browser** — GUI tool (optional)
 
----
 
-*Made with ❤️ for SQL Portfolio*
