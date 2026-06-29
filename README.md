@@ -92,6 +92,21 @@ Minor changes needed (date functions differ slightly)
 
 ---
 
+## 📅 Daily Development Log
+
+| Date | Update |
+|------|--------|
+| Day 1 | ✅ Created all 6 tables with constraints |
+| Day 2 | ✅ Added 625 rows of realistic data |
+| Day 3 | ✅ Added 10 basic SQL queries |
+| Day 4 | ✅ Added advanced JOIN queries |
+| Day 5 | ✅ Added subqueries and HAVING clause |
+| Day 6 | ✅ Added date functions and reports |
+| Day 7 | ✅ Added fine tracking system |
+| Day 8 | ✅ Updated README documentation |
+
+---
+
 ## 🛠️ Tech Stack
 
 - **SQL** — Core language
