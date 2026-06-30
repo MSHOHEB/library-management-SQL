@@ -975,3 +975,15 @@ FROM members m
 WHERE m.is_active = TRUE
 ORDER BY total_borrowed DESC
 LIMIT 20;
+
+-- Query 21: Books Published After 2010
+SELECT title, author, publish_year
+FROM books
+WHERE publish_year > 2010
+ORDER BY publish_year DESC;
+
+-- Query 22: Members Who Never Borrowed
+SELECT m.name, m.email, m.join_date
+FROM members m
+LEFT JOIN issues i ON m.member_id = i.member_id
+WHERE i.issue_id IS NULL;
