@@ -987,3 +987,43 @@ SELECT m.name, m.email, m.join_date
 FROM members m
 LEFT JOIN issues i ON m.member_id = i.member_id
 WHERE i.issue_id IS NULL;
+
+-- Query 22: Members Who Never Borrowed
+SELECT m.name, m.email, m.join_date
+FROM members m
+LEFT JOIN issues i ON m.member_id = i.member_id
+WHERE i.issue_id IS NULL;
+
+-- Query 23: Most Popular Category This Year
+SELECT c.category_name, COUNT(*) AS borrows_2023
+FROM categories c
+JOIN books b ON c.category_id = b.category_id
+JOIN issues i ON b.book_id = i.book_id
+WHERE strftime('%Y', i.issue_date) = '2023'
+GROUP BY c.category_name
+ORDER BY borrows_2023 DESC
+LIMIT 5;
+
+-- Query 24: Staff Who Handled Most Returns
+SELECT s.name, COUNT(*) AS returns_handled
+FROM staff s
+JOIN issues i ON s.staff_id = i.staff_id
+JOIN returns r ON i.issue_id = r.issue_id
+GROUP BY s.name
+ORDER BY returns_handled DESC;
+
+-- Query 25: Books Currently Issued (Not Returned)
+SELECT b.title, m.name, i.issue_date, i.due_date
+FROM issues i
+JOIN books b ON i.book_id = b.book_id
+JOIN members m ON i.member_id = m.member_id
+WHERE i.status != 'Returned';
+
+-- Query 26: Premium Members Borrowing Pattern
+SELECT m.name, COUNT(i.issue_id) AS total_books
+FROM members m
+JOIN issues i ON m.member_id = i.member_id
+WHERE m.membership = 'Premium'
+GROUP BY m.name
+ORDER BY total_books DESC;
+
